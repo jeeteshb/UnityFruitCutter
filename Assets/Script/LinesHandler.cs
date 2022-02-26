@@ -10,6 +10,7 @@ public class LinesHandler : MonoBehaviour
     private LineRenderer lineRenderer;
 	private int i = 0;
 
+    [System.Obsolete]
     void Start()
     {
         lineGO = new GameObject("Line");
@@ -20,8 +21,9 @@ public class LinesHandler : MonoBehaviour
 		lineRenderer.SetWidth(0.3F, 0);
 		lineRenderer.SetVertexCount(0);
 	}
-	
-	void Update()
+
+    [System.Obsolete]
+    void Update()
     {
 		if (Input.touchCount > 0)
         {
