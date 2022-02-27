@@ -15,13 +15,19 @@ public class Timer : MonoBehaviour
     
     void ReduceTime()
     {
-        if (timeTF.text == "1")
+        if (GameConstants.gameState != GameConstants.GameState.GAMEOVER)
         {
-            StopAllCoroutines();
-			GameObject.Find("AppleGUI").GetComponent<AudioSource>().Stop();
-            GameManager.Instance.GameOver();
-		}
-		
-        timeTF.text = (int.Parse(timeTF.text) - 1).ToString();
+            if (timeTF.text == "2")
+            {
+                GameConstants.gameState = GameConstants.GameState.STOPFRUITS;
+            }
+            else if (timeTF.text == "1")
+            {
+                GameConstants.gameState = GameConstants.GameState.GAMEOVER;
+                GameManager.Instance.GameOver();
+            }
+
+            timeTF.text = (int.Parse(timeTF.text) - 1).ToString();
+        }
     }
 }

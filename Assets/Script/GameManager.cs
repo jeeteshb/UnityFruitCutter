@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        GameObject.Find("AppleGUI").GetComponent<AudioSource>().Stop();
         GameoverObj.GetComponent<AudioSource>().Play();
         GameoverObj.SetActive(true);
     }
